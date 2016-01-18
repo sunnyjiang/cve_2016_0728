@@ -1,3 +1,6 @@
+/* $ gcc cve_2016_0726.c -o cve_2016_0726 -lkeyutils -Wall */
+/* $ ./cve_2016_0726 PP_KEY */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
